@@ -1,0 +1,76 @@
+Microsoft (R) Macro Assembler Version 14.26.28806.0	    06/12/20 15:30:24
+Matrix.asm						     Page 1 - 1
+
+
+				.386
+				.model flat,stdcall
+				.stack 4096
+				ExitProcess PROTO,dwExitCode:DWORD
+
+ 00000000			.data
+ 00000000 00000000		Row1Out DWORD ?
+ 00000004 00000000		Row2Out DWORD ?
+
+ 00000000			.code
+ 00000000			main PROC
+ 00000000  B8 00000005			MOV eax, 5
+ 00000005  6B C0 04			IMUL eax, 4
+ 00000008  BB 00000003			MOV ebx, 3
+ 0000000D  6B DB 02			IMUL ebx, 2
+ 00000010  03 C3			ADD eax, ebx
+ 00000012  A3 00000000 R		MOV Row1Out, eax
+
+ 00000017  B8 00000005			MOV eax, 5
+ 0000001C  6B C0 05			IMUL eax, 5
+ 0000001F  BB 00000003			MOV ebx, 3
+ 00000024  6B DB 03			IMUL ebx, 3
+ 00000027  03 C3			ADD eax, ebx
+ 00000029  A3 00000004 R		MOV Row2Out, eax
+
+					INVOKE ExitProcess,0
+ 0000002E  6A 00	   *	    push   +000000000h
+ 00000030  E8 00000000 E   *	    call   ExitProcess
+ 00000035			main ENDP
+				END main
+Microsoft (R) Macro Assembler Version 14.26.28806.0	    06/12/20 15:30:24
+Matrix.asm						     Symbols 2 - 1
+
+
+
+
+Segments and Groups:
+
+                N a m e                 Size     Length   Align   Combine Class
+
+FLAT . . . . . . . . . . . . . .	GROUP
+STACK  . . . . . . . . . . . . .	32 Bit	 00001000 DWord	  Stack	  'STACK'	 
+_DATA  . . . . . . . . . . . . .	32 Bit	 00000008 DWord	  Public  'DATA'	
+_TEXT  . . . . . . . . . . . . .	32 Bit	 00000035 DWord	  Public  'CODE'	
+
+
+Procedures, parameters, and locals:
+
+                N a m e                 Type     Value    Attr
+
+ExitProcess  . . . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External STDCALL
+main . . . . . . . . . . . . . .	P Near	 00000000 _TEXT	Length= 00000035 Public STDCALL
+
+
+Symbols:
+
+                N a m e                 Type     Value    Attr
+
+@CodeSize  . . . . . . . . . . .	Number	 00000000h   
+@DataSize  . . . . . . . . . . .	Number	 00000000h   
+@Interface . . . . . . . . . . .	Number	 00000003h   
+@Model . . . . . . . . . . . . .	Number	 00000007h   
+@code  . . . . . . . . . . . . .	Text   	 _TEXT
+@data  . . . . . . . . . . . . .	Text   	 FLAT
+@fardata?  . . . . . . . . . . .	Text   	 FLAT
+@fardata . . . . . . . . . . . .	Text   	 FLAT
+@stack . . . . . . . . . . . . .	Text   	 FLAT
+Row1Out  . . . . . . . . . . . .	DWord	 00000000 _DATA	
+Row2Out  . . . . . . . . . . . .	DWord	 00000004 _DATA	
+
+	   0 Warnings
+	   0 Errors
